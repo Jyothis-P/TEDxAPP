@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/square_red_border">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="A01"
+        android:layout_weight="0"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/text_view_seat"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_weight="1"
+        android:text="Sameeksha Rocks"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/text_view"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_margin="16dp"
+        android:text="9876543210"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/text_view_phone"/>
+</LinearLayout>

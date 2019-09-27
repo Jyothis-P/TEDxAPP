@@ -10,11 +10,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,20 +26,22 @@ public class MainActivity extends AppCompatActivity {
     public String ACTION = "checkin";
     TextView RemainingView;
     TextView completedView;
+    TextView actionView;
     int count = 0;
 
     /* renamed from: db */
-    FirebaseFirestore f215db;
+    FirebaseFirestore db;
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         setContentView((int) R.layout.activity_main);
-        this.f215db = FirebaseFirestore.getInstance();
+        db = FirebaseFirestore.getInstance();
         Button btn = (Button) findViewById(R.id.button);
-        this.completedView = (TextView) findViewById(R.id.completed);
-        this.RemainingView = (TextView) findViewById(R.id.remaining);
+        completedView = (TextView) findViewById(R.id.completed);
+        RemainingView = (TextView) findViewById(R.id.remaining);
+        actionView = (TextView) findViewById(R.id.action);
         getFirestoreValues();
         btn.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -46,33 +51,59 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onResume() {
+    /* access modifiers changed from: protected */
+    public void onResume() {
         super.onResume();
-
+        ACTION = getApplicationContext().getSharedPreferences("MyPref", 0).getString("action", "checkin");
+        getFirestoreValues();
+        String str = "";
+        switch (ACTION) {
+            case "checkin":
+                str = "Check In";
+                break;
+            case "tea1":
+                str = "Morning Tea";
+                break;
+            case "lunch":
+                str = "Lunch";
+                break;
+            case "tea2":
+                str = "Evening Tea";
+                break;
+            default:
+                str = "extra";
+                break;
+        }
+        actionView.setText(str);
     }
 
-    //    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.C1245menu.main_menu, menu);
-//        return true;
-//    }
-//
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        if (item.getItemId() != R.id.select_action) {
-//            return super.onOptionsItemSelected(item);
-//        }
-//        startActivity(new Intent(this, SettingsActivity.class));
-//        return true;
-//    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.select_action) {
+            startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        }
+        else if (item.getItemId() == R.id.view_list) {
+            startActivity(new Intent(MainActivity.this, ListActivity.class));
+            return true;
+        }
+        else
+            return super.onOptionsItemSelected(item);
+    }
 
     private void getFirestoreValues() {
-        this.f215db.collection("attendees").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        db.collection("attendees").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                 MainActivity.this.count = 0;
                 Iterator it = queryDocumentSnapshots.iterator();
                 while (it.hasNext()) {
                     try {
-                        if (((DocumentSnapshot) it.next()).getBoolean(MainActivity.this.ACTION).booleanValue()) {
+                        if (((DocumentSnapshot) it.next()).getBoolean(ACTION).booleanValue()) {
                             MainActivity.this.count++;
                         }
                     } catch (Exception e) {

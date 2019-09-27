@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:background="@drawable/square_red_border"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <RadioGroup
+        android:id="@+id/action_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/action_checkin"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Check - In" />
+
+        <RadioButton
+            android:id="@+id/action_tea_1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Tea Morning" />
+
+        <RadioButton
+            android:id="@+id/action_tea_2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Lunch" />
+
+        <RadioButton
+            android:id="@+id/action_tea_3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Tea Evening" />
+
+        <RadioButton
+            android:id="@+id/action_extra"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Something else" />
+    </RadioGroup>
+</LinearLayout>

@@ -9,7 +9,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -23,7 +25,7 @@ public class Info extends AppCompatActivity {
     Button checkInButton;
 
     /* renamed from: db */
-    FirebaseFirestore f214db;
+    FirebaseFirestore db;
     TextView fnameView;
     ImageView foodIconView;
     TextView foodView;
@@ -34,7 +36,7 @@ public class Info extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView((int) R.layout.activity_info);
-        this.f214db = FirebaseFirestore.getInstance();
+        db = FirebaseFirestore.getInstance();
         initView();
         final String id = getIntent().getStringExtra("qr");
         getFirestoreValues(id);
@@ -49,14 +51,13 @@ public class Info extends AppCompatActivity {
     /* access modifiers changed from: protected */
     public void onResume() {
         super.onResume();
-        this.ACTION = getApplicationContext().getSharedPreferences("MyPref", 0).getString("action", "checkin");
-        String str = "";
+        ACTION = getApplicationContext().getSharedPreferences("MyPref", 0).getString("action", "checkin");
     }
 
     /* access modifiers changed from: private */
     public void checkIn(String id) {
         Log.e(TAG, this.ACTION);
-        this.f214db.collection("attendees").document(id).update(this.ACTION, (Object) Boolean.valueOf(true), new Object[0]).addOnSuccessListener(new OnSuccessListener<Void>() {
+        db.collection("attendees").document(id).update(ACTION, (Object) Boolean.valueOf(true), new Object[0]).addOnSuccessListener(new OnSuccessListener<Void>() {
             public void onSuccess(Void aVoid) {
                 Info.this.checkInButton.setText("Check In");
                 String str = "Checked In";
@@ -99,7 +100,7 @@ public class Info extends AppCompatActivity {
     }
 
     private void getFirestoreValues(String id) {
-        this.f214db.collection("attendees").document(id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("attendees").document(id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             public void onComplete(Task<DocumentSnapshot> task) {
                 String str;
                 StringBuilder sb;
@@ -124,7 +125,11 @@ public class Info extends AppCompatActivity {
                     sb.append(str);
                     sb.append(str3);
                     String fname = sb.toString();
-                    String lname = names.length > 2 ? Info.this.getLname(names) : names[1];
+                    String lname = "";
+                    if (names.length != 1){
+                        lname = names.length > 2 ? Info.this.getLname(names) : names[1];
+                    }
+
                     Info.this.fnameView.setText(fname);
                     Info.this.lnameView.setText(lname);
                     Info.this.seatView.setText(seat);
@@ -135,11 +140,6 @@ public class Info extends AppCompatActivity {
                         Info.this.foodIconView.setImageResource(R.drawable.nonveg);
                         Info.this.foodView.setText("Non-Veg");
                     }
-                    StringBuilder sb2 = new StringBuilder();
-                    sb2.append(document.getId());
-                    sb2.append(" => ");
-                    sb2.append(document.getData());
-                    Log.d(str2, sb2.toString());
                     return;
                 }
                 Log.w(str2, "Error getting documents.", task.getException());

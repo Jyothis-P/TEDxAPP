@@ -1,0 +1,159 @@
+{
+  "project_info": {
+    "project_number": "208199290171",
+    "firebase_url": "https://tedx-a0b18.firebaseio.com",
+    "project_id": "tedx-a0b18",
+    "storage_bucket": "tedx-a0b18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208199290171:android:9acb0eb3dfcdef99613b1e",
+        "android_client_info": {
+          "package_name": "com.example.curator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208199290171-l1pcb2rj3ftnrr6m6ftjdahrvtk1u7ae.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.curator",
+            "certificate_hash": "056bbe6201ee8c6f4dae49a527c4db568b771d31"
+          }
+        },
+        {
+          "client_id": "208199290171-42lvgso2urbubtgdcvjk8jsto10crlme.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuEI5YM9CYbzihZGbwZLW8KAjNU71SJNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208199290171-42lvgso2urbubtgdcvjk8jsto10crlme.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208199290171:android:f9f5f1d548138a72613b1e",
+        "android_client_info": {
+          "package_name": "com.example.curatorphone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208199290171-4uhqitgr8fumqmbvivr6coi23efcml1f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.curatorphone",
+            "certificate_hash": "056bbe6201ee8c6f4dae49a527c4db568b771d31"
+          }
+        },
+        {
+          "client_id": "208199290171-42lvgso2urbubtgdcvjk8jsto10crlme.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuEI5YM9CYbzihZGbwZLW8KAjNU71SJNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208199290171-42lvgso2urbubtgdcvjk8jsto10crlme.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208199290171:android:3417099d32e68f5a613b1e",
+        "android_client_info": {
+          "package_name": "com.example.qrcode"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208199290171-kgaaabmf0g8v5mu8go4l1clsiif5004h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.qrcode",
+            "certificate_hash": "056bbe6201ee8c6f4dae49a527c4db568b771d31"
+          }
+        },
+        {
+          "client_id": "208199290171-42lvgso2urbubtgdcvjk8jsto10crlme.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuEI5YM9CYbzihZGbwZLW8KAjNU71SJNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208199290171-42lvgso2urbubtgdcvjk8jsto10crlme.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208199290171:android:a894f6d6cf3b12b1613b1e",
+        "android_client_info": {
+          "package_name": "com.jyothisp.tedxcusatcheckin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208199290171-7hhnpmiia19qrf4q8u0h1duskv655pfp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jyothisp.tedxcusatcheckin",
+            "certificate_hash": "056bbe6201ee8c6f4dae49a527c4db568b771d31"
+          }
+        },
+        {
+          "client_id": "208199290171-42lvgso2urbubtgdcvjk8jsto10crlme.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuEI5YM9CYbzihZGbwZLW8KAjNU71SJNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208199290171-42lvgso2urbubtgdcvjk8jsto10crlme.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

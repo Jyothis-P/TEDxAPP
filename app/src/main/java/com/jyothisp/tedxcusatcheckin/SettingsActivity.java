@@ -42,6 +42,7 @@ public class SettingsActivity extends AppCompatActivity {
                 Editor editor = SettingsActivity.this.pref.edit();
                 editor.putString("action", action);
                 editor.commit();
+                finish();
             }
         });
     }

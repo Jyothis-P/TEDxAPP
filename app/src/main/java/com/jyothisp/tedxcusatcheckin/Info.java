@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -72,6 +73,14 @@ public class Info extends AppCompatActivity {
                 Toast.makeText(Info.this.getApplicationContext(), "Error cehching in", Toast.LENGTH_SHORT).show();
             }
         });
+
+        db.collection("display").document("registration").update("id", id)
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     private void initView() {
@@ -126,7 +135,7 @@ public class Info extends AppCompatActivity {
                     sb.append(str3);
                     String fname = sb.toString();
                     String lname = "";
-                    if (names.length != 1){
+                    if (names.length != 1) {
                         lname = names.length > 2 ? Info.this.getLname(names) : names[1];
                     }
 

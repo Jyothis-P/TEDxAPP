@@ -32,8 +32,10 @@ public class ListActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        ACTION = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE).getString("action", "checkin");
 
         FirebaseFirestore rootRef = FirebaseFirestore.getInstance();
+
         Query query = rootRef.collection("attendees")
                 .whereEqualTo(ACTION, true)
                 .orderBy("seat", Query.Direction.ASCENDING);
@@ -101,7 +103,6 @@ public class ListActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        ACTION = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE).getString("action", "checkin");
         adapter.startListening();
     }
 

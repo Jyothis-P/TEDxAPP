@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     TextView RemainingView;
     TextView completedView;
     TextView actionView;
+    LinearLayout statsView;
     int count = 0;
 
     /* renamed from: db */
@@ -42,7 +44,14 @@ public class MainActivity extends AppCompatActivity {
         completedView = (TextView) findViewById(R.id.completed);
         RemainingView = (TextView) findViewById(R.id.remaining);
         actionView = (TextView) findViewById(R.id.action);
+        statsView =  findViewById(R.id.stats);
         getFirestoreValues();
+        statsView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ListActivity.class));
+            }
+        });
         btn.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 MainActivity mainActivity = MainActivity.this;
